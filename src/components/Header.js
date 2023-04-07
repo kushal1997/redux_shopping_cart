@@ -1,7 +1,10 @@
+import { useSelector } from "react-redux"
 import Logo from "../assets/images/logo.png"
 import { Link,NavLink } from "react-router-dom"
 import "./header.css"
+
 export const Header = () => {
+  const cartList=useSelector(state => state.cartState.cartList);
   return (
     <header>
       <Link to="/" className="logo" >
@@ -13,7 +16,7 @@ export const Header = () => {
         <NavLink className="link" to="/cart">Cart</NavLink>
       </nav>
       <Link className="counter" to="/cart" >
-      <span>Cart - 2</span>
+      <span>Cart - {cartList.length}</span>
       </Link>
     </header>
     
